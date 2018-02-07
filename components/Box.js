@@ -25,7 +25,6 @@ class Box extends Component {
     }
     componentDidUpdate() {
         console.log("computer GUESS NOW");
-
     }
     handleClick(e) {
         this.setState({content: 'x'})
