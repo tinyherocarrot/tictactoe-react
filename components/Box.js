@@ -23,14 +23,12 @@ class Box extends Component {
     state = {
         content: "",
     }
-    componentDidUpdate() {
-        console.log("computer GUESS NOW");
-    }
-    handleClick(e) {
-        this.setState({content: 'x'})
+    handleClick = (value) => {
+        console.log(this.props.value)
+        this.props.handleBoxClick(value);
     }
     render() {
-        return <StyledBox content={this.state.content} onClick={e => this.handleClick(e)} />;
+        return <StyledBox content={this.props.content} onClick={() => this.handleClick(this.props.value)} />;
     }
 }
 

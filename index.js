@@ -3,38 +3,44 @@ import Grid from './components/Grid'
 import Counter from './components/Counter'
 
 
-//the "maple syrup" for our pancakes
+//the Redux "maple syrup" for our pancakes
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 
-// const game = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-const initialState = {
-  count: 0
-};
-function reducer(state = initialState, action) {
-	switch (action.type) {
-		case "INCREMENT":
-			return { count: state.count + 1 };
-		case "DECREMENT":
-			return { count: state.count - 1 };
+// const initialState = {
+//   count: 0
+// };
+// function reducer(state = initialState, action) {
+// 	switch (action.type) {
+// 		case "INCREMENT":
+// 			return { count: state.count + 1 };
+// 		case "DECREMENT":
+// 			return { count: state.count - 1 };
 
-		default:
-			return state;
-  }
-}
-const store = createStore(reducer);
+// 		default:
+// 			return state;
+//   }
+// }
+// const store = createStore(reducer);
 
 export default class App extends Component {
-
+	state = {
+		game: [0, 0, 0, 0, 0, 0, 0, 0, 0]
+	}
+	handleBoxClick = value => {
+		console.log(value)
+		let tempGame = this.state.game
+		tempGame[value] = "x"
+		this.setState({game: tempGame})
+	}
 	render() {
-		return (
-			<Provider store={store}>
-				<div>
-					<h1>React Tic-Tac-Toe</h1>
-					<Counter/>
-					<Grid />
-				</div>
-			</Provider>
-		);
+		return <div>
+        <h1>React Tic-Tac-Toe</h1>
+        <Grid game={this.state.game} handleBoxClick={this.handleBoxClick} />
+      </div>;
 	}
 }
+
+{/* <Counter/> */}
+{/* <Provider store={store}> 
+</Provider>  */}
