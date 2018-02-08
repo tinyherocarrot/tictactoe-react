@@ -24,7 +24,6 @@ class Box extends Component {
         content: "",
     }
     handleClick = (value) => {
-        console.log(this.props.value)
         this.props.handleBoxClick(value);
     }
     render() {
