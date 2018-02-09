@@ -7,7 +7,7 @@ class Grid extends Component {
         game: this.props.game
     }
     render() {
-        console.log(this.state)
+        // console.log(this.state)
         return <StyledGrid>
             {
                 this.state.game.map((cell, i) => <Box content={cell} value={i} {...this.props}/>)

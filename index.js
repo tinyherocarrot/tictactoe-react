@@ -1,8 +1,6 @@
 import { Component } from 'preact';
 import Game from "./components/Game";
 
-
-
 //the Redux "maple syrup" for our pancakes
 import { Provider } from "react-redux";
 import { createStore } from "redux";
@@ -22,6 +20,7 @@ import { createStore } from "redux";
 //   }
 // }
 // const store = createStore(reducer);
+
 const App = () => {
 	return <div>
       <h1>React Tic-Tac-Toe</h1>
@@ -30,7 +29,6 @@ const App = () => {
 }
 
 export default App;
-
 
 {/* <Counter/> */}
 {/* <Provider store={store}> 
